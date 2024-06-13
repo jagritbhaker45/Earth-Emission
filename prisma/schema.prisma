@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("mysql://root:Jagrit@123@localhost:3306/customer")
+}
+
+use client
+
+model customer_t {
+  id        Int   @id @default(autoincrement())
+  image     String @db.VarChar(20)
+  name      String @db.VarChar(45)
+  email     String @db.VarChar(45)
+  location  String @db.VarChar(45)
+  orders    Int
+  lastOrder String @db.VarChar(20)
+  spent     String @db.VarChar(20)
+  refunds   Int?
+  fav       String @db.VarChar(10)
+}
